@@ -46,7 +46,7 @@ public class Company {
 	private String contactEmail;
 
 	@OneToMany(mappedBy = "company")
-	private final List<Job> jobs = new ArrayList<>();
+	private final List<Job> jobs = new ArrayList<Job>();
 
 	@Column(updatable = false)
 	@NotNull
