@@ -4,6 +4,6 @@
 	</resources>
 
 	<dependencies>
-		<module name="javax.crypto" />
+		<module name="javax.api"/>
 	</dependencies>
 </module>
