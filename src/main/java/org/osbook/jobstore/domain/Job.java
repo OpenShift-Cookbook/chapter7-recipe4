@@ -46,7 +46,7 @@ public class Job {
 	private boolean filled = false;
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	private Set<String> skills = new HashSet<String>();
+	private Set<String> skills = new HashSet<>();
 
 	@ManyToOne
 	@NotNull
