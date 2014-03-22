@@ -18,18 +18,23 @@ import javax.ws.rs.core.Response.Status;
 
 import org.osbook.jobstore.domain.Job;
 import org.osbook.jobstore.services.JobService;
+import org.osbook.jobstore.services.TweetService;
 
 @Path("/companies/{companyId}/jobs")
 public class JobResource {
 
 	@Inject
 	private JobService jobService;
+	
+	@Inject
+	private TweetService tweetService;
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createNewJob(@PathParam("companyId") Long companyId,
 			@Valid Job job) {
 		job = jobService.save(companyId, job);
+		tweetService.tweet(job);
 		return Response.status(Status.CREATED).entity(jobService.findById(job.getId())).build();
 	}
 
